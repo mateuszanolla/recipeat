@@ -1,0 +1,131 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.app {
+  background-color: black;
+  display: grid;
+  grid-template-columns: 30vw auto;
+  grid-template-rows: 15vh 5vh 80vh;
+}
+
+/* FORM */
+.formComponent {
+  position: absolute;
+  width: 100%;
+  margin: 0em auto;
+}
+.formArea {
+  background-color: aliceblue;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 0;
+  padding: 10px 0 15px;
+}
+
+.addNewRecipe{
+  display:flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.addNewRecipeInputs{
+  display:flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.titleInput{
+  width: 60%;
+}
+.authorInput{
+  width: 40%;
+}
+.ingredientsPrepare{
+  display:flex;
+  flex-direction: column;  
+}
+.ingredientsPrepare > h3 {
+  margin-bottom: 10px;
+}
+.ingredientPrepareInput{
+  margin-bottom: 10px;
+}
+.listIngredientsPrepare{
+  display: flex;
+  gap:10px;
+  font-size: 1em;
+  list-style-type: none;
+  list-style-position: inside;
+}
+.submitButton {
+  width: 50px;
+  height: 25px;
+}
+
+/* CARDS */
+.card-title{
+  color:white;
+  grid-row: 2 / 3;
+  grid-column: 1/4;
+  font-size: 1.3em;
+  text-align: center;
+}
+.recipesArea {
+  color:white;
+  grid-row: 3/ 4;
+
+}
+.card-container {
+  border: 1px solid white;
+  border-radius: 15px;
+  margin:15px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap:15px;
+}
+
+.card-recipe-title{
+  text-align: center;
+  text-transform: uppercase;
+}
+.card-recipe-author{
+  text-align: right;
+  font-size: 0.8em;
+  font-style: italic;
+}
+
+.card-section-header{
+  font-size: 1.1em;
+
+}
+
+.card-section-list{
+  font-size: 1em;
+  text-indent: 1em;
+  list-style-type: none;
+  list-style-position: inside;
+}
+
+ul li::marker {
+  content: "✓  ";  
+  font-size: 1em;  
+}
+
+.addDeleteButon{
+  width:15px;
+  border: none;
+  background: none;
+}
+.evaluateAndAuthor{
+  display: flex;
+  justify-content: space-around;
+}
+.card-evaluate{
+  display:flex;
+  justify-content: start;
+  gap: 10px;
+}

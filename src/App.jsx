@@ -11,45 +11,57 @@ export const App = () => {
   const [allSteps, setAllSteps] = useState([]);
   const [currentStep, setCurrentStep] = useState("");
   const [steps, setSteps] = useState([]);
-  const [evaluation, setEvaluation] = useState(5)
+  const [evaluation, setEvaluation] = useState(5);
   const [newRecipe, setNewRecipe] = useState({
     title: "",
     author: "",
     ingredients: [],
     steps: [],
-    evaluation: 5,
+    evaluation: 3,
     id: "",
+    isComplete: true,
   });
   const [formHidden, setFormHidden] = useState(true);
   const [recipesList, setRecipesList] = useState([]);
 
-
-
   const handleRecipe = (e) => {
     e.preventDefault();
+    if (
+      oneIngredient.length === 0 &&
+      currentStep.length === 0 &&
+      currentTitle.length === 0 &&
+      currentAuthor.length === 0
+    ) {
+      setNewRecipe({ ...newRecipe, isComplete: false });
+      setFormHidden(false);
+      return;
+    }
     const newIngredientAdded = [
       ...ingredients,
       { ingredient: oneIngredient, id: new Date().toISOString() },
     ];
     setIngredients(newIngredientAdded);
-     const newAllSteps = [
-       ...allSteps,
-       { step: currentStep, id: new Date().toISOString() },
-     ];
+    const newAllSteps = [
+      ...allSteps,
+      { step: currentStep, id: new Date().toISOString() },
+    ];
     const newRecipeObject = {
-      title: currentTitle ? currentTitle : "Misterious Recipe",
+      title: currentTitle ? currentTitle : "Mysterious Recipe",
       author: currentAuthor ? currentAuthor : "Unknown",
-      ingredients: oneIngredient === '' ? ingredients : newIngredientAdded, 
-      steps: currentStep === '' ? allSteps : newAllSteps,
+      ingredients: oneIngredient === "" ? ingredients : newIngredientAdded,
+      steps: currentStep !== "" ? newAllSteps : allSteps,
       id: new Date(),
-      evaluation: 3
+      evaluation: 3,
     };
     setRecipesList([...recipesList, newRecipeObject]);
     setIngredients([]);
     setAllSteps([]);
-    setOneIngredient('')
-    setCurrentStep('')
-    setFormHidden(!formHidden)
+    setOneIngredient("");
+    setCurrentStep("");
+    setCurrentAuthor("");
+    setCurrentTitle("");
+    setNewRecipe({ ...newRecipe, isComplete: true });
+    setFormHidden(true);
   };
 
   return (
@@ -73,8 +85,11 @@ export const App = () => {
         setNewRecipe,
         handleRecipe,
         recipesList,
+        setRecipesList,
         formHidden,
-        setFormHidden,evaluation, setEvaluation
+        setFormHidden,
+        evaluation,
+        setEvaluation,
       }}
     >
       <section className="app">

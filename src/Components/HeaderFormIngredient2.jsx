@@ -22,9 +22,9 @@ export const HeaderFormIngredient2 = () => {
 
   return (
     <>
-      <div className="form-mandatory">
+      <div>
         <input
-          className="ingredientPrepareInput form-mandatory"
+          className="ingredientPrepareInput"
           type="text"
           id="ingredient"
           placeholder="Insert an ingredient"

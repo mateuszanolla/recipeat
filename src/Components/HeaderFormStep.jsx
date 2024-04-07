@@ -23,7 +23,7 @@ export const HeaderFormStep = () => {
 
   return (
     <>
-      <div className="form-mandatory">
+      <div>
         <input
           className="ingredientPrepareInput"
           type="text"

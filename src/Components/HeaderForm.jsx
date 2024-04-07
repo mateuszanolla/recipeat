@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { RecipeContext } from "../App";
 import { HeaderFormIngredient2 } from "./HeaderFormIngredient2";
 import { HeaderFormStep } from "./HeaderFormStep";
@@ -13,6 +13,7 @@ export const HeaderForm = () => {
     handleRecipe,
     formHidden,
     setFormHidden,
+    newRecipe
   } = useContext(RecipeContext);
 
   const hideForm = (e) => {
@@ -26,12 +27,12 @@ export const HeaderForm = () => {
         formHidden ? "formComponent formComponentHide" : "formComponent"
       }
     >
-      <form className="formArea">
+      <form className="formArea" onSubmit={(e) => handleRecipe(e)}>
         <div className="addNewRecipe">
           <h2>Add a new recipe:</h2>
 
           <div className="addNewRecipeInputs ">
-            <div className="form-mandatory">
+            <div>
               <input
                 className="titleInput"
                 type="text"
@@ -68,12 +69,12 @@ export const HeaderForm = () => {
      
         </div>
 
-        <button className="submitButton" onClick={(e) => handleRecipe(e)}>
+        <button type="submit"  className={ newRecipe.isComplete ?"submitButton" : "submitButton form-mandatory"}>
           Cook!
         </button>
       </form>
       <button onClick={(e) => hideForm(e)} className="span-add">
-        Add
+        {formHidden ? "Show add recipe" : "Hide add recipe"} 
       </button>
     </header>
   );

@@ -17,7 +17,7 @@
 }
 
 .formComponentHide{
-  translate:0 -6.2rem;
+  translate:0 -5.5rem;
 }
 
 .formArea {
@@ -75,9 +75,8 @@
 }
 
 .form-mandatory::after{
-  display: flex;
-  flex-direction: column;
-  content: '* Please update me =(';
+  
+  content: '* Missing info :(';
   color:red;
   font-style: italic;
   font-size: 0.7rem;
@@ -86,11 +85,13 @@
 
 /* CARDS */
 .card-title{
+  padding-top: 2rem;
   color:white;
   font-size: 1.3em;
   text-align: center;
 }
 .recipesArea {
+  margin: 1rem;
   color:white;
   display: flex;
   flex-direction: row;
@@ -149,4 +150,13 @@ ul li::marker {
   display:flex;
   justify-content: start;
   gap: 10px;
+}
+.deleteCard{
+  height:inherit;
+  width:auto;
+  align-items: end;
+  text-align: end;
+  margin-right: 2rem;
+  
+
 }

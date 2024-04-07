@@ -1,30 +1,31 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useContext } from "react";
 import { RecipeContext } from "../App";
 
-export const Card = ({ item }) => {
-  const { recipesList, setRecipesList, evaluation, setEvaluation } =
+export const Card = ({ item, deleteCard }) => {
+  const { recipesList, setEvaluation } =
     useContext(RecipeContext);
 
   function increasePoints(id) {
-    recipesList.map((item) => {
-      if (item.id == id) {
+    recipesList.forEach((item) => {
+      if (item.id === id) {
         if (item.evaluation < 5) {
-          setEvaluation(item.evaluation += 1);
+          setEvaluation((item.evaluation += 1));
         }
       }
     });
   }
   function decreasePoints(id) {
-    recipesList.map((item) => {
-      if (item.id == id) {
+    recipesList.forEach((item) => {
+      if (item.id === id) {
         if (item.evaluation > 0) {
-          setEvaluation(item.evaluation = item.evaluation-1);
+          setEvaluation((item.evaluation = item.evaluation - 1));
         }
       }
+      
     });
   }
-  useEffect(()=>{},[setEvaluation])
+  useEffect(() => {}, [setEvaluation]);
   return (
     <div className="card-container">
       <h3 className="card-recipe-title">{item.title}</h3>
@@ -67,6 +68,7 @@ export const Card = ({ item }) => {
           ))}
         </ul>
       </div>
+      <button onClick={(e) => deleteCard(e, item.id)} className="addDeleteButon deleteCard">🗑️</button>
     </div>
   );
 };

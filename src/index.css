@@ -5,9 +5,7 @@
 
 .app {
   background-color: black;
-  display: grid;
-  grid-template-columns: 30vw auto;
-  grid-template-rows: 15vh 5vh 80vh;
+  height: 100vh;
 }
 
 /* FORM */
@@ -15,7 +13,13 @@
   position: absolute;
   width: 100%;
   margin: 0em auto;
+ 
 }
+
+.formComponentHide{
+  translate:0 -6.2rem;
+}
+
 .formArea {
   background-color: aliceblue;
   display: flex;
@@ -64,22 +68,39 @@
   width: 50px;
   height: 25px;
 }
+.span-add{
+  background-color: aliceblue;
+  padding: 0.2rem;
+  border:none;
+}
+
+.form-mandatory::after{
+  display: flex;
+  flex-direction: column;
+  content: '* Please update me =(';
+  color:red;
+  font-style: italic;
+  font-size: 0.7rem;
+}
+
 
 /* CARDS */
 .card-title{
   color:white;
-  grid-row: 2 / 3;
-  grid-column: 1/4;
   font-size: 1.3em;
   text-align: center;
 }
 .recipesArea {
   color:white;
-  grid-row: 3/ 4;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 
 }
 .card-container {
-  border: 1px solid white;
+  min-width: 15em;
+  height: 15em;
+  border: 1px solid #ffffff;
   border-radius: 15px;
   margin:15px;
   padding: 10px;

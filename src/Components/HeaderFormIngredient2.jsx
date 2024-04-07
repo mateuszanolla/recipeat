@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { RecipeContext } from "./HeaderForm2";
+import { RecipeContext } from "../App";
 
 export const HeaderFormIngredient2 = () => {
   const { oneIngredient, setOneIngredient, ingredients, setIngredients } =
@@ -22,9 +22,9 @@ export const HeaderFormIngredient2 = () => {
 
   return (
     <>
-      <div>
+      <div className="form-mandatory">
         <input
-          className="ingredientPrepareInput"
+          className="ingredientPrepareInput form-mandatory"
           type="text"
           id="ingredient"
           placeholder="Insert an ingredient"
@@ -47,7 +47,7 @@ export const HeaderFormIngredient2 = () => {
                 className="addDeleteButon"
                 onClick={(e) => deleteEntry(e, i.id)}
               >
-              🗑️
+                🗑️
               </button>
             </div>
           );

@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { RecipeContext } from "./HeaderForm2";
+import { RecipeContext } from "../App";
 
 export const HeaderFormStep = () => {
   const { allSteps, setAllSteps, currentStep, setCurrentStep } =
@@ -23,7 +23,7 @@ export const HeaderFormStep = () => {
 
   return (
     <>
-      <div>
+      <div className="form-mandatory">
         <input
           className="ingredientPrepareInput"
           type="text"
